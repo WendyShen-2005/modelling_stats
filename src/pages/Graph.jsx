@@ -1,14 +1,18 @@
 const Graph = ({result}) => {
     const h = 500;
     const yAxisH = parseInt(result.max / result.total * h);
+    const numYAxisVals = parseInt(yAxisH / 25);
+    // const numYAxisVals = 2;
     console.log("y axis" + yAxisH + " val: " + result.max)
     return (
         <div>
-            <div style={{display:"flex", height:h + "px", margin:"auto", border:"1px solid red"}}>
+            <div style={{display:"flex", height:h + "px", margin:"auto"}}>
                 {/* y-axis */}
-                <div style={{height:yAxisH + "px", marginTop: (h - yAxisH) + "px", border:"1px solid black"}}>
+                <div style={{height:yAxisH + "px", marginTop: (h - yAxisH) + "px", display:"flex", flexDirection:"column", justifyContent:"space-between"
+                }}>
                     {Array(result.max).fill(0).map((val, i) =>{
-                            return <p key={i}>{result.max - 1 - i}</p>
+                            if(parseInt(i / numYAxisVals * 10)%10 == 0)
+                                return <p style={{margin:"0", textAlign:"right"}} key={i}>{(result.max - 1 - i)}</p>
                         })
                     }
                 </div>

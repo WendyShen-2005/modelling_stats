@@ -69,15 +69,3 @@ const consoleLogMonty = (winningDoor, initGuess, finalGuess, monty, win) => {
     console.log(" Final: " + finalSetup + " Win: " + win);
 
 }
-
-export const multipleTrials = (func, trials) => {
-    var win = 0;
-
-    for(var i = 0; i < trials; i++) {
-        win += func();
-    }
-
-    console.log(win / trials);
-
-    return win / trials;
-}

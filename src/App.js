@@ -1,24 +1,16 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-import { multipleTrials, oneMontyTrial } from './pages/OneTrial';
+import { multipleTrials, oneMontyTrial } from './pages/functions/OneTrial';
+import { useState } from 'react';
+import SelectionPage from './pages/SelectionPage';
 
 function App() {
+
+  const [page, setPage] = useState("selectionPage");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo"/>
-        <p onClick={() => multipleTrials(oneMontyTrial, 5)}>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {page == "selectionPage" && <SelectionPage setPage={setPage}/>}
     </div>
   );
 }

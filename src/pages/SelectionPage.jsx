@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { multipleMultipleTrials } from "./functions/MultipleTrials";
 import { oneMontyTrial } from "./functions/OneTrial";
+import Graph from "./Graph";
 
 const SelectionPage = ({setPage}) => {
 
     const [indvTrials, setIndvTrials] = useState(10);
     const [trialsTrials, setTrialsTrials] = useState(100);
     const [intervalSize, setIntervalSize] = useState(10);
-    const [result, setResults] = useState([0,0,0,0,0,0,0,0,0,0]);
+    const [result, setResults] = useState(null);
     return (
         <div>
             <h1>Modelling various statistical problems</h1>
@@ -26,7 +27,11 @@ const SelectionPage = ({setPage}) => {
                  multipleMultipleTrials(oneMontyTrial, indvTrials, trialsTrials, intervalSize)
                  )}>Run Trial</button>
 
-            {result}
+            {/* {result} */}
+
+            {result != null &&
+                <Graph result={result}/>
+            }
         </div>
     )
 }

@@ -1,4 +1,4 @@
-const Graph = ({result}) => {
+const Graph = ({result, setHoverInfo}) => {
     const h = 500;
     const yAxisH = parseInt(result.max / result.total * h);
     const numYAxisVals = parseInt(yAxisH / 25);
@@ -16,13 +16,23 @@ const Graph = ({result}) => {
                         })
                     }
                 </div>
+
+                {/* bars */}
                 {result.vals.map((val, i) => {
                     const height = parseInt(val / result.total * h);
                     const topMargin = h - height;
 
+                    const percent = parseInt(i/(result.vals.length -1) * 100);
+
                     {console.log(height + " " + val)}
-                    return <div key={i} style={{height:height + "px", width:"25px", border:"1px solid red", 
+                    return <div>
+                        <div 
+                            onClick={() => setHoverInfo({percent:percent, number:val})}
+                        key={i} style={{height:height + "px", width:"25px", border:"1px solid red", 
                         marginRight:"10px", marginTop:topMargin + "px"}}/>
+                        <br/>
+                        <p>{percent}</p>
+                    </div>
                 })}
             </div>
         </div>

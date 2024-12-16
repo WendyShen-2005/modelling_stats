@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/modelling_stats/static/css/main.f855e6bc.css",
-    "main.js": "/modelling_stats/static/js/main.b972acfb.js",
+    "main.js": "/modelling_stats/static/js/main.fe7b4c6d.js",
     "static/js/488.ba4c13b7.chunk.js": "/modelling_stats/static/js/488.ba4c13b7.chunk.js",
     "index.html": "/modelling_stats/index.html",
     "main.f855e6bc.css.map": "/modelling_stats/static/css/main.f855e6bc.css.map",
-    "main.b972acfb.js.map": "/modelling_stats/static/js/main.b972acfb.js.map",
+    "main.fe7b4c6d.js.map": "/modelling_stats/static/js/main.fe7b4c6d.js.map",
     "488.ba4c13b7.chunk.js.map": "/modelling_stats/static/js/488.ba4c13b7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f855e6bc.css",
-    "static/js/main.b972acfb.js"
+    "static/js/main.fe7b4c6d.js"
   ]
 }

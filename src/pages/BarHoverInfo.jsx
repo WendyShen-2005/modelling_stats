@@ -1,16 +1,9 @@
-import { useState } from "react"
-
 const BarHoverInfo = ({info}) => {
-
+    if(!info) return null;
     return (
-        <div style={{
-            // position:"absolute", 
-        border:"1px solid black",
-        background:"white",
-        borderRadius:"5px",
-        padding:"5px"}}>
-            <p>Percentage interval: {info.percent}</p>
-            <p># of trials with this percentage: {info.number} </p>
+        <div className="card" style={{display:'inline-block', padding:'10px 14px'}}>
+            <div style={{fontWeight:700}}>{info.percent}%</div>
+            <div style={{color:'var(--muted)'}}>Count: {info.number}</div>
         </div>
     )
 }

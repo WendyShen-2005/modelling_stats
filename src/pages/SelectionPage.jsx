@@ -13,50 +13,51 @@ const SelectionPage = ({setPage}) => {
 
     const [hoverInfo, setHoverInfo] = useState(null);
 
+    const run = () => {
+        const i = parseInt(indvTrials) || 10;
+        const t = parseInt(trialsTrials) || 100;
+        const s = parseInt(intervalSize) || 10;
+        const res = multipleMultipleTrials(oneMontyTrial, i, t, s);
+        setResults(res);
+    }
+
     return (
         <div>
-            <h1>Modelling various statistical problems</h1>
-            <p style={{textDecoration:"line-through"}}>(for now, just Monty Hall problem)</p>
-            <div>
-                <label>Number of trials for individual trials (i.e: 1 trial = 100 flips of a coin)</label>
-                <br/>
-                <input type='number' defaultValue={10} onChange={(e) => setIndvTrials(e.target.value)}/>
+            <div className="container card">
+                <h2>Modelling various statistical problems</h2>
+                <p style={{marginTop:0, color:"var(--muted)"}}>Monty Hall simulation and distribution visualiser</p>
 
-                <br/>
-                <br/>
+                <div style={{marginTop:16}} className="controls">
+                    <div>
+                        <label>Trials per experiment</label>
+                        <input type='number' value={indvTrials} onChange={(e) => setIndvTrials(e.target.value)}/>
+                    </div>
 
+                    <div>
+                        <label>Number of experiments</label>
+                        <input type='number' value={trialsTrials} onChange={(e) => setTrialsTrials(e.target.value)}/>
+                    </div>
 
-                <label>Number of trials of trials (i.e: 100 trials of 100 flips of a coin)</label>
-                <br/>
-                <input type='number' defaultValue={100} onChange={(e) => setTrialsTrials(e.target.value)}/>
+                    <div>
+                        <label>Interval size (%)</label>
+                        <input type='number' value={intervalSize} onChange={(e) => setIntervalSize(e.target.value)}/>%
+                    </div>
 
-                <br/>
-                <br/>
-
-
-                <label>Size of intervals for graph (ex: 10 for 0%, 10%, 20%...)</label>
-                <br/>
-                <input type='number' defaultValue={10} onChange={(e) => setIntervalSize(e.target.value)}/>%
-            </div>
-            <br/>
-
-            <button onClick={() => setResults(
-                 multipleMultipleTrials(oneMontyTrial, indvTrials, trialsTrials, intervalSize)
-                 )}>Run Trial</button>
-
-            {/* {result} */}
-
+                    <div style={{alignSelf:'flex-end'}}>
+                        <button onClick={run}>Run Trial</button>
+                    </div>
+                </div>
 
                 {result != null && <>
-                        <hr/>
-                        {hoverInfo != null && <BarHoverInfo info={hoverInfo}/>}
-                        <br/><br/>
-                        <div style={{textAlign:"center", width:"100%"}}>Monty Hall Problem</div>
-                        <div style={{width:"100%", display:"flex", justifyContent:"center"}}>
-                            <Graph setHoverInfo={setHoverInfo} result={result}/>
-                        </div>
-                    </>}
+                    <hr style={{margin:'20px 0'}}/>
+                    {hoverInfo != null && <BarHoverInfo info={hoverInfo}/>}
+                    <h3 style={{marginTop:8}}>Monty Hall Problem</h3>
+                    <div className="graph-wrapper card">
+                        <Graph setHoverInfo={setHoverInfo} result={result}/>
+                    </div>
+                </>}
 
+            </div>
         </div>
     )
 }

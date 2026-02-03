@@ -1,8 +1,9 @@
 // import logo from './logo.svg';
 import './App.css';
-import { multipleTrials, oneMontyTrial } from './pages/functions/OneTrial';
 import { useState } from 'react';
 import SelectionPage from './pages/SelectionPage';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -10,7 +11,11 @@ function App() {
 
   return (
     <div className="App">
-      {page == "selectionPage" && <SelectionPage setPage={setPage}/>}
+      <Header subtitle="Explore probability models and visualisations" />
+      <main className="container main-content">
+        {page === "selectionPage" && <SelectionPage setPage={setPage}/>}
+      </main>
+      <Footer />
     </div>
   );
 }
